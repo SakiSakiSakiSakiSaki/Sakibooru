@@ -6,7 +6,20 @@ html {
    * <%= ColorPalette.css_rules %>
    * bin/rails runner "puts ColorPalette.css_rules"
    */
+  --terracotta-0: #f9f2f2; /* hsluv(10, 45, 95.0) */
+  --terracotta-1: #f0e0df; /* hsluv(10, 45, 90.0) */
+  --terracotta-2: #e5c5c4; /* hsluv(10, 45, 82.0) */
+  --terracotta-3: #ce9f9d; /* hsluv(10, 45, 68.0) */
+  --terracotta-4: #b67f7b; /* hsluv(10, 45, 58.0) */
+  --terracotta-5: #9d635e; /* hsluv(10, 45, 48.0) */
+  --terracotta-6: #814942; /* hsluv(10, 45, 38.0) */
+  --terracotta-7: #613532; /* hsluv(10, 45, 28.0) */
+  --terracotta-8: #472421; /* hsluv(10, 45, 22.0) */
+  --terracotta-9: #341715; /* hsluv(10, 45, 18.0) */
 
+  --link-warm-color: #b97544; /* hsluv(32, 55, 60) - default warm link */
+  --link-warm-hover: #f2a666; /* hsluv(32, 70, 70) - bright on hover */
+  
   --grey-0: #f6f6f8; /* hsluv(265, 17.5, 97.0) */
   --grey-1: #e8e8ec; /* hsluv(265, 17.5, 92.0) */
   --grey-2: #d1d1da; /* hsluv(265, 17.5, 84.0) */
@@ -161,7 +174,7 @@ html, body[data-current-user-theme="light"] {
   --form-button-hover-background: var(--grey-0);
   --form-button-hover-box-shadow-color: var(--grey-5);
   --form-button-active-background: var(--grey-2);
-
+  
   --checkbox-selected-color: var(--link-color);
   --toggle-switch-unselected-color: var(--grey-3);
   --toggle-switch-selected-color: var(--checkbox-selected-color);
@@ -381,14 +394,14 @@ html, body[data-current-user-theme="light"] {
 
 /* variables that aren't defined in the dark theme fall back to the :root theme */
 @mixin dark-theme {
-  --body-background-color: var(--grey-9);
-  --text-color: var(--grey-2);
+  --body-background-color: var(--terracotta-9);
+  --text-color: var(--terracotta-2);
 
-  --inverse-text-color: var(--grey-0);
-  --muted-text-color: var(--grey-4);
-  --header-color: var(--grey-1);
-  --link-color: var(--azure-4);
-  --link-hover-color: var(--azure-3);
+  --inverse-text-color: var(--terracotta-0);
+  --muted-text-color: var(--terracotta-4);
+  --header-color: var(--terracotta-1);
+  --link-color: var(--link-warm-color);
+  --link-hover-color: var(--link-warm-hover);
   --focus-ring-color: var(--link-color);
 
   --success-color: var(--green-4);
@@ -399,7 +412,7 @@ html, body[data-current-user-theme="light"] {
   --warning-hover-color: var(--yellow-2);
   --error-hover-color: var(--red-3);
 
-  --default-border-color: var(--grey-7);
+  --default-border-color: var(--terracotta-7);
 
   --error-background-color: var(--red-9);
   --success-background-color: var(--green-9);
@@ -407,12 +420,12 @@ html, body[data-current-user-theme="light"] {
   --selection-background-color: var(--blue-5);
   --target-text-background-color: var(--magenta-5);
 
-  --subnav-menu-background-color: var(--grey-8);
-  --responsive-menu-background-color: var(--grey-8);
-  --card-background-color: var(--grey-8);
+  --subnav-menu-background-color: var(--terracotta-8);
+  --responsive-menu-background-color: var(--terracotta-8);
+  --card-background-color: var(--terracotta-8);
 
-  --chip-primary-background-color: var(--grey-8);
-  --chip-secondary-background-color: var(--grey-7);
+  --chip-primary-background-color: var(--terracotta-8);
+  --chip-secondary-background-color: var(--terracotta-7);
   --chip-red-background-color: var(--red-8);
   --chip-green-background-color: var(--green-8);
   --chip-blue-background-color: var(--blue-8);
@@ -424,30 +437,30 @@ html, body[data-current-user-theme="light"] {
 
   --badge-blue-background-color: var(--blue-5);
 
-  --form-input-background: var(--grey-7);
-  --form-input-border-color: var(--grey-5);
-  --form-input-placeholder-text-color: var(--grey-3);
+  --form-input-background: var(--terracotta-7);
+  --form-input-border-color: var(--terracotta-5);
+  --form-input-placeholder-text-color: var(--terracotta-3);
   --form-input-validation-error-border-color: var(--red-4);
   --form-input-validation-error-text-color: var(--red-5);
 
-  --form-button-text-color: var(--grey-9);
-  --form-button-disabled-text-color: var(--grey-5);
-  --form-button-background: var(--grey-2);
-  --form-button-border-color: var(--grey-4);
-  --form-button-hover-background: var(--grey-0);
-  --form-button-hover-box-shadow-color: var(--grey-5);
-  --form-button-active-background: var(--grey-3);
+  --form-button-text-color: var(--terracotta-9);
+  --form-button-disabled-text-color: var(--terracotta-5);
+  --form-button-background: var(--terracotta-2);
+  --form-button-border-color: var(--terracotta-4);
+  --form-button-hover-background: var(--terracotta-0);
+  --form-button-hover-box-shadow-color: var(--terracotta-5);
+  --form-button-active-background: var(--terracotta-3);
 
   --checkbox-selected-color: var(--blue-5);
-  --toggle-switch-unselected-color: var(--grey-5);
+  --toggle-switch-unselected-color: var(--terracotta-5);
   --toggle-switch-selected-color: var(--checkbox-selected-color);
   --toggle-switch-indeterminate-color: var(--link-color);
   --toggle-switch-handle-color: var(--inverse-text-color);
 
-  --dtext-editor-menu-background-color: var(--grey-8);
+  --dtext-editor-menu-background-color: var(--terracotta-8);
 
   --button-text-color: var(--white);
-  --button-disabled-color: var(--grey-4);
+  --button-disabled-color: var(--terracotta-4);
 
   --button-primary-background-color: var(--link-color);
   --button-primary-hover-background-color: var(--link-hover-color);
@@ -458,16 +471,16 @@ html, body[data-current-user-theme="light"] {
   --button-outline-primary-color: var(--azure-4);
   --button-outline-danger-color: var(--red-4);
 
-  --quick-search-form-background: var(--grey-9);
+  --quick-search-form-background: var(--terracotta-9);
 
-  --user-upgrade-basic-background-color: var(--grey-8);
-  --user-upgrade-gold-background-color: var(--grey-7);
+  --user-upgrade-basic-background-color: var(--terracotta-8);
+  --user-upgrade-gold-background-color: var(--terracotta-7);
   --user-upgrade-platinum-background-color: var(--blue-9);
 
-  --table-header-border-color: var(--grey-7);
-  --table-row-border-color: var(--grey-7);
-  --table-even-row-background: var(--grey-8);
-  --table-row-hover-background: var(--grey-7);
+  --table-header-border-color: var(--terracotta-7);
+  --table-row-border-color: var(--terracotta-7);
+  --table-even-row-background: var(--terracotta-8);
+  --table-row-hover-background: var(--terracotta-7);
 
   --preview-pending-color: var(--azure-4);
   --preview-flagged-color: var(--red-5);
@@ -476,13 +489,13 @@ html, body[data-current-user-theme="light"] {
   --preview-has-parent-color: var(--orange-3);
   --preview-selected-color: rgba(255 255 255 / 25%);
 
-  --media-asset-placeholder-background-color: var(--grey-8);
+  --media-asset-placeholder-background-color: var(--terracotta-8);
 
   --modqueue-tag-warning-color: var(--red-7);
 
-  --uploads-dropzone-background: var(--grey-7);
+  --uploads-dropzone-background: var(--terracotta-7);
   --uploads-dropzone-progress-bar-foreground-color: var(--blue-5);
-  --uploads-dropzone-progress-bar-background-color: var(--grey-6);
+  --uploads-dropzone-progress-bar-background-color: var(--terracotta-6);
 
   --forum-vote-up-color: var(--green-4);
   --forum-vote-meh-color: var(--yellow-2);
@@ -498,20 +511,20 @@ html, body[data-current-user-theme="light"] {
 
   --comment-sticky-background-color: var(--azure-8);
 
-  --post-tooltip-background-color: var(--grey-8);
-  --post-tooltip-border-color: var(--grey-7);
-  --post-tooltip-header-background-color: var(--grey-8);
-  --post-tooltip-info-color: var(--grey-2);
+  --post-tooltip-background-color: var(--terracotta-8);
+  --post-tooltip-border-color: var(--terracotta-7);
+  --post-tooltip-header-background-color: var(--terracotta-8);
+  --post-tooltip-info-color: var(--terracotta-2);
 
-  --post-tooltip-scrollbar-background: var(--grey-4);
-  --post-tooltip-scrollbar-thumb-color: var(--grey-5);
-  --post-tooltip-scrollbar-track-background: var(--grey-1);
+  --post-tooltip-scrollbar-background: var(--terracotta-4);
+  --post-tooltip-scrollbar-thumb-color: var(--terracotta-5);
+  --post-tooltip-scrollbar-track-background: var(--terracotta-1);
 
   --user-tooltip-positive-feedback-color: var(--yellow-1);
   --user-tooltip-negative-feedback-color: var(--red-1);
 
-  --autocomplete-selected-background-color: var(--grey-7);
-  --autocomplete-border-color: var(--grey-4);
+  --autocomplete-selected-background-color: var(--terracotta-7);
+  --autocomplete-border-color: var(--terracotta-4);
 
   --diff-list-added-color: var(--green-4);
   --diff-list-removed-color: var(--red-4);
@@ -521,17 +534,17 @@ html, body[data-current-user-theme="light"] {
   --wiki-page-versions-diff-del-background: var(--red-8);
   --wiki-page-versions-diff-ins-background: var(--green-8);
 
-  --post-notice-border-color: var(--grey-7);
+  --post-notice-border-color: var(--terracotta-7);
   --post-parent-notice-background: var(--green-8);
   --post-child-notice-background: var(--yellow-8);
   --post-pending-notice-background: var(--blue-8);
   --post-banned-notice-background: var(--red-8);
   --post-deleted-notice-background: var(--red-8);
   --post-resized-notice-background: var(--purple-8);
-  --post-search-notice-background: var(--grey-8);
+  --post-search-notice-background: var(--terracotta-8);
 
-  --post-artist-commentary-container-background: var(--grey-8);
-  --post-artist-commentary-container-border-color: var(--grey-7);
+  --post-artist-commentary-container-background: var(--terracotta-8);
+  --post-artist-commentary-container-border-color: var(--terracotta-7);
 
   --post-upvote-color: var(--link-color);
   --post-downvote-color: var(--red-4);
@@ -557,23 +570,23 @@ html, body[data-current-user-theme="light"] {
   --ugoira-background-color: var(--black);
   --ugoira-controls-icon-color: var(--white);
   --ugoira-controls-icon-hover-color: var(--azure-4);
-  --ugoira-controls-background-color: var(--grey-9);
-  --ugoira-controls-popup-hover-background-color: var(--grey-6);
-  --ugoira-controls-divider-color: var(--grey-6);
+  --ugoira-controls-background-color: var(--terracotta-9);
+  --ugoira-controls-popup-hover-background-color: var(--terracotta-6);
+  --ugoira-controls-divider-color: var(--terracotta-6);
   --ugoira-slider-playback-color: var(--azure-4);
-  --ugoira-slider-loading-color: var(--grey-3);
-  --ugoira-slider-unloaded-color: var(--grey-5);
+  --ugoira-slider-loading-color: var(--terracotta-3);
+  --ugoira-slider-unloaded-color: var(--terracotta-5);
 
-  --keyboard-shortcut-color: var(--grey-0);
-  --keyboard-shortcut-background-color: var(--grey-7);
+  --keyboard-shortcut-color: var(--terracotta-0);
+  --keyboard-shortcut-background-color: var(--terracotta-7);
 
   --login-link-color: var(--red-4);
-  --divider-border-color: var(--grey-7);
-  --divider-border-hover-color: var(--grey-6);
+  --divider-border-color: var(--terracotta-7);
+  --divider-border-hover-color: var(--terracotta-6);
 
-  --jquery-ui-widget-content-background: var(--grey-8);
-  --dialog-titlebar-background-color: var(--grey-1);
-  --dialog-titlebar-color: var(--grey-9);
+  --jquery-ui-widget-content-background: var(--terracotta-8);
+  --dialog-titlebar-background-color: var(--terracotta-1);
+  --dialog-titlebar-color: var(--terracotta-9);
   --dialog-border-color: var(--dialog-titlebar-background-color);
 
   --notice-error-background: var(--red-8);
@@ -581,23 +594,23 @@ html, body[data-current-user-theme="light"] {
   --notice-info-background: var(--azure-8);
   --notice-info-border-color: var(--azure-6);
 
-  --dtext-blockquote-border-color: var(--grey-4);
-  --dtext-hr-color: var(--grey-7);
-  --dtext-code-background: var(--grey-8);
-  --dtext-details-background-color: var(--grey-8);
-  --dtext-details-summary-background-color: var(--grey-7);
-  --dtext-details-summary-hover-background-color: var(--grey-6);
+  --dtext-blockquote-border-color: var(--terracotta-4);
+  --dtext-hr-color: var(--terracotta-7);
+  --dtext-code-background: var(--terracotta-8);
+  --dtext-details-background-color: var(--terracotta-8);
+  --dtext-details-summary-background-color: var(--terracotta-7);
+  --dtext-details-summary-hover-background-color: var(--terracotta-6);
   --dtext-details-summary-text-color: var(--text-color);
   --dtext-spoiler-background-color: black;
-  --dtext-spoiler-hover-color: var(--grey-0);
+  --dtext-spoiler-hover-color: var(--terracotta-0);
 
-  --paginator-arrow-background-color: var(--grey-0);
+  --paginator-arrow-background-color: var(--terracotta-0);
   --paginator-arrow-color: var(--link-color);
 
   --asset-paginator-link-color: var(--white);
   --asset-paginator-link-hover-color: var(--white);
-  --asset-paginator-background-color: var(--grey-9);
-  --asset-paginator-background-hover-color: var(--grey-8);
+  --asset-paginator-background-color: var(--terracotta-9);
+  --asset-paginator-background-hover-color: var(--terracotta-8);
 
   --artist-tag-color: var(--red-3);
   --artist-tag-hover-color: var(--red-2);
@@ -619,7 +632,7 @@ html, body[data-current-user-theme="light"] {
   --user-member-color: var(--general-tag-color);
   --user-restricted-color: var(--general-tag-color);
   --user-banned-color: var(--grey-5);
-
+  
   --user-owner-hover-color: var(--user-admin-hover-color);
   --user-admin-hover-color: var(--artist-tag-hover-color);
   --user-moderator-hover-color: var(--character-tag-hover-color);
@@ -633,13 +646,13 @@ html, body[data-current-user-theme="light"] {
   --user-verified-email-color: var(--green-3);
   --user-unverified-email-color: var(--yellow-2);
 
-  --news-updates-background: var(--grey-7);
-  --news-updates-border-color: var(--grey-6);
+  --news-updates-background: var(--terracotta-7);
+  --news-updates-border-color: var(--terracotta-6);
 
   --inactive-artist-url-color: var(--red-4);
   --inactive-artist-url-hover-color: var(--red-3);
   --banned-artist-label-color: var(--red-5);
-  --deleted-artist-label-color: var(--grey-6);
+  --deleted-artist-label-color: var(--terracotta-6);
 }
 
 body[data-current-user-theme="dark"] {

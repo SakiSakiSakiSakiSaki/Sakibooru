@@ -74,7 +74,7 @@
 
   <%= render NavbarComponent.new(current_user: CurrentUser.user) %>
 
-  <div id="page" class="relative flex-1 mx-8 mt-4 sm:mx-2 sm:mt-2">
+  <div id="page" class="flex-1 mx-8 mt-4 sm:mx-2 sm:mt-2">
     <% if CurrentUser.user.is_restricted? && (params[:controller] == "users" || cookies[:hide_verify_account_notice].blank?) %>
       <div class="notice notice-info notice-large" id="verify-account-notice">
         <h2>Your account is restricted.</h2>
@@ -131,27 +131,9 @@
 
   <div id="tooltips"></div>
 
-  <footer id="page-footer" class="text-sm text-center flex-initial mt-4 py-3 w-full border-t flex flex-wrap items-center justify-center gap-1 leading-none">
+  <footer id="page-footer" class="text-sm text-center flex-initial mt-4 py-3 w-full border-t flex flex-wrap items-center justify-center gap-1">
     <%= link_to "Terms", main_app.terms_of_service_path %>
-    / <%= link_to "Privacy", main_app.privacy_policy_path %>
-    / <%= link_to "Upgrade", main_app.new_user_upgrade_path %>
-    / <%= link_to "Contact", main_app.contact_path %>
-    /
-    <% if Danbooru.config.source_code_url.present? %>
-      <%= link_to Danbooru.config.source_code_url, title: "Running commit: #{Rails.application.config.x.git_hash&.first(9)}", class: "social-icon" do %>
-        <%= github_icon(class: "h-4") %>
-      <% end %>
-    <% end %>
-    <% if Danbooru.config.twitter_username.present? %>
-      <%= link_to "https://twitter.com/#{Danbooru.config.twitter_username}", class: "social-icon" do %>
-        <%= twitter_icon(class: "h-4") %>
-      <% end %>
-    <% end %>
-    <% if Danbooru.config.discord_server_url.present? %>
-      <%= link_to Danbooru.config.discord_server_url, class: "social-icon" do %>
-        <%= discord_icon(class: "h-4") %>
-      <% end %>
-    <% end %>
+    - <%= link_to "Privacy", main_app.privacy_policy_path %>  
   </footer>
 <% end %>
 </html>
