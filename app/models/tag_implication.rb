@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class TagImplication < TagRelationship
-  MINIMUM_TAG_COUNT = 10
-  MINIMUM_TAG_PERCENTAGE = 0.0001
-  MAXIMUM_TAG_PERCENTAGE = 0.9
+  MINIMUM_TAG_COUNT = 0
+  MINIMUM_TAG_PERCENTAGE = 0.0
+  MAXIMUM_TAG_PERCENTAGE = 1.0
 
   has_many :child_implications, class_name: "TagImplication", primary_key: :consequent_name, foreign_key: :antecedent_name
   has_many :parent_implications, class_name: "TagImplication", primary_key: :antecedent_name, foreign_key: :consequent_name
@@ -14,8 +14,8 @@ class TagImplication < TagRelationship
   validate :antecedent_is_not_aliased
   validate :consequent_is_not_aliased
   validate :tag_categories_are_compatible, on: :request
-  validate :meets_tag_size_requirements, on: :request
-  validate :has_wiki_page, on: :request
+  # validate :meets_tag_size_requirements, on: :request
+  # validate :has_wiki_page, on: :request
 
   scope :empty, -> { joins(:antecedent_tag).merge(Tag.empty) }
 
