@@ -153,7 +153,7 @@ services:
     command: ["openresty", "-e", "/dev/stderr"]
     environment:
       # The external port to listen on. You can set this to 80 if you have nothing else listening on port 80.
-      DANBOORU_PORT: "${DANBOORU_PORT:-9001}"
+      DANBOORU_PORT: "${DANBOORU_PORT:-9003}"
 
       # If true (the default), assume we may be running behind a reverse proxy (such as Cloudflare, Ngrok, etc), and
       # trust the X-Forwarded-* headers sent by the client. This assumes untrusted users won't have access to your
@@ -163,7 +163,7 @@ services:
       # Used by Nginx to determine the root directory if we're running in a subdirectory (e.g. http://example.com/danbooru).
       DANBOORU_CANONICAL_URL: ${DANBOORU_CANONICAL_URL:-}
     ports:
-      - "${DANBOORU_PORT:-9001}:3000"
+      - "${DANBOORU_PORT:-9003}:3000"
     depends_on:
       danbooru:
         condition: service_started
