@@ -6,19 +6,19 @@ html {
    * <%= ColorPalette.css_rules %>
    * bin/rails runner "puts ColorPalette.css_rules"
    */
-  --terracotta-0: #f9f2f2; /* hsluv(10, 45, 95.0) */
-  --terracotta-1: #f0e0df; /* hsluv(10, 45, 90.0) */
-  --terracotta-2: #e5c5c4; /* hsluv(10, 45, 82.0) */
-  --terracotta-3: #ce9f9d; /* hsluv(10, 45, 68.0) */
-  --terracotta-4: #b67f7b; /* hsluv(10, 45, 58.0) */
-  --terracotta-5: #9d635e; /* hsluv(10, 45, 48.0) */
-  --terracotta-6: #814942; /* hsluv(10, 45, 38.0) */
-  --terracotta-7: #613532; /* hsluv(10, 45, 28.0) */
-  --terracotta-8: #472421; /* hsluv(10, 45, 22.0) */
-  --terracotta-9: #341715; /* hsluv(10, 45, 18.0) */
+  --velvette-0: #f8f5f9; /* hsluv(280, 35, 95.0) */
+  --velvette-1: #eee2f1; /* hsluv(280, 35, 90.0) */
+  --velvette-2: #ddc7e5; /* hsluv(280, 35, 82.0) */
+  --velvette-3: #c4a1d0; /* hsluv(280, 35, 68.0) */
+  --velvette-4: #a97fb7; /* hsluv(280, 35, 58.0) */
+  --velvette-5: #8f639e; /* hsluv(280, 35, 48.0) */
+  --velvette-6: #734883; /* hsluv(280, 35, 38.0) */
+  --velvette-7: #573567; /* hsluv(280, 35, 28.0) */
+  --velvette-8: #3e2449; /* hsluv(280, 35, 22.0) */
+  --velvette-9: #2b1733; /* hsluv(280, 35, 18.0) */
 
-  --link-warm-color: #b97544; /* hsluv(32, 55, 60) - default warm link */
-  --link-warm-hover: #f2a666; /* hsluv(32, 70, 70) - bright on hover */
+  --link-warm-color: #9f63b3; /* hsluv(280, 55, 60) - warm purple link */
+  --link-warm-hover: #c285dd; /* hsluv(280, 70, 70) - bright on hover */
   
   --grey-0: #f6f6f8; /* hsluv(265, 17.5, 97.0) */
   --grey-1: #e8e8ec; /* hsluv(265, 17.5, 92.0) */
@@ -394,12 +394,12 @@ html, body[data-current-user-theme="light"] {
 
 /* variables that aren't defined in the dark theme fall back to the :root theme */
 @mixin dark-theme {
-  --body-background-color: var(--terracotta-9);
-  --text-color: var(--terracotta-2);
+  --body-background-color: var(--velvette-9);
+  --text-color: var(--velvette-2);
 
-  --inverse-text-color: var(--terracotta-0);
-  --muted-text-color: var(--terracotta-4);
-  --header-color: var(--terracotta-1);
+  --inverse-text-color: var(--velvette-0);
+  --muted-text-color: var(--velvette-4);
+  --header-color: var(--velvette-1);
   --link-color: var(--link-warm-color);
   --link-hover-color: var(--link-warm-hover);
   --focus-ring-color: var(--link-color);
@@ -412,7 +412,7 @@ html, body[data-current-user-theme="light"] {
   --warning-hover-color: var(--yellow-2);
   --error-hover-color: var(--red-3);
 
-  --default-border-color: var(--terracotta-7);
+  --default-border-color: var(--velvette-7);
 
   --error-background-color: var(--red-9);
   --success-background-color: var(--green-9);
@@ -420,12 +420,12 @@ html, body[data-current-user-theme="light"] {
   --selection-background-color: var(--blue-5);
   --target-text-background-color: var(--magenta-5);
 
-  --subnav-menu-background-color: var(--terracotta-8);
-  --responsive-menu-background-color: var(--terracotta-8);
-  --card-background-color: var(--terracotta-8);
+  --subnav-menu-background-color: var(--velvette-8);
+  --responsive-menu-background-color: var(--velvette-8);
+  --card-background-color: var(--velvette-8);
 
-  --chip-primary-background-color: var(--terracotta-8);
-  --chip-secondary-background-color: var(--terracotta-7);
+  --chip-primary-background-color: var(--velvette-8);
+  --chip-secondary-background-color: var(--velvette-7);
   --chip-red-background-color: var(--red-8);
   --chip-green-background-color: var(--green-8);
   --chip-blue-background-color: var(--blue-8);
@@ -437,30 +437,30 @@ html, body[data-current-user-theme="light"] {
 
   --badge-blue-background-color: var(--blue-5);
 
-  --form-input-background: var(--terracotta-7);
-  --form-input-border-color: var(--terracotta-5);
-  --form-input-placeholder-text-color: var(--terracotta-3);
+  --form-input-background: var(--velvette-7);
+  --form-input-border-color: var(--velvette-5);
+  --form-input-placeholder-text-color: var(--velvette-3);
   --form-input-validation-error-border-color: var(--red-4);
   --form-input-validation-error-text-color: var(--red-5);
 
-  --form-button-text-color: var(--terracotta-9);
-  --form-button-disabled-text-color: var(--terracotta-5);
-  --form-button-background: var(--terracotta-2);
-  --form-button-border-color: var(--terracotta-4);
-  --form-button-hover-background: var(--terracotta-0);
-  --form-button-hover-box-shadow-color: var(--terracotta-5);
-  --form-button-active-background: var(--terracotta-3);
+  --form-button-text-color: var(--velvette-9);
+  --form-button-disabled-text-color: var(--velvette-5);
+  --form-button-background: var(--velvette-2);
+  --form-button-border-color: var(--velvette-4);
+  --form-button-hover-background: var(--velvette-0);
+  --form-button-hover-box-shadow-color: var(--velvette-5);
+  --form-button-active-background: var(--velvette-3);
 
   --checkbox-selected-color: var(--blue-5);
-  --toggle-switch-unselected-color: var(--terracotta-5);
+  --toggle-switch-unselected-color: var(--velvette-5);
   --toggle-switch-selected-color: var(--checkbox-selected-color);
   --toggle-switch-indeterminate-color: var(--link-color);
   --toggle-switch-handle-color: var(--inverse-text-color);
 
-  --dtext-editor-menu-background-color: var(--terracotta-8);
+  --dtext-editor-menu-background-color: var(--velvette-8);
 
   --button-text-color: var(--white);
-  --button-disabled-color: var(--terracotta-4);
+  --button-disabled-color: var(--velvette-4);
 
   --button-primary-background-color: var(--link-color);
   --button-primary-hover-background-color: var(--link-hover-color);
@@ -471,16 +471,16 @@ html, body[data-current-user-theme="light"] {
   --button-outline-primary-color: var(--azure-4);
   --button-outline-danger-color: var(--red-4);
 
-  --quick-search-form-background: var(--terracotta-9);
+  --quick-search-form-background: var(--velvette-9);
 
-  --user-upgrade-basic-background-color: var(--terracotta-8);
-  --user-upgrade-gold-background-color: var(--terracotta-7);
+  --user-upgrade-basic-background-color: var(--velvette-8);
+  --user-upgrade-gold-background-color: var(--velvette-7);
   --user-upgrade-platinum-background-color: var(--blue-9);
 
-  --table-header-border-color: var(--terracotta-7);
-  --table-row-border-color: var(--terracotta-7);
-  --table-even-row-background: var(--terracotta-8);
-  --table-row-hover-background: var(--terracotta-7);
+  --table-header-border-color: var(--velvette-7);
+  --table-row-border-color: var(--velvette-7);
+  --table-even-row-background: var(--velvette-8);
+  --table-row-hover-background: var(--velvette-7);
 
   --preview-pending-color: var(--azure-4);
   --preview-flagged-color: var(--red-5);
@@ -489,13 +489,13 @@ html, body[data-current-user-theme="light"] {
   --preview-has-parent-color: var(--orange-3);
   --preview-selected-color: rgba(255 255 255 / 25%);
 
-  --media-asset-placeholder-background-color: var(--terracotta-8);
+  --media-asset-placeholder-background-color: var(--velvette-8);
 
   --modqueue-tag-warning-color: var(--red-7);
 
-  --uploads-dropzone-background: var(--terracotta-7);
+  --uploads-dropzone-background: var(--velvette-7);
   --uploads-dropzone-progress-bar-foreground-color: var(--blue-5);
-  --uploads-dropzone-progress-bar-background-color: var(--terracotta-6);
+  --uploads-dropzone-progress-bar-background-color: var(--velvette-6);
 
   --forum-vote-up-color: var(--green-4);
   --forum-vote-meh-color: var(--yellow-2);
@@ -511,20 +511,20 @@ html, body[data-current-user-theme="light"] {
 
   --comment-sticky-background-color: var(--azure-8);
 
-  --post-tooltip-background-color: var(--terracotta-8);
-  --post-tooltip-border-color: var(--terracotta-7);
-  --post-tooltip-header-background-color: var(--terracotta-8);
-  --post-tooltip-info-color: var(--terracotta-2);
+  --post-tooltip-background-color: var(--velvette-8);
+  --post-tooltip-border-color: var(--velvette-7);
+  --post-tooltip-header-background-color: var(--velvette-8);
+  --post-tooltip-info-color: var(--velvette-2);
 
-  --post-tooltip-scrollbar-background: var(--terracotta-4);
-  --post-tooltip-scrollbar-thumb-color: var(--terracotta-5);
-  --post-tooltip-scrollbar-track-background: var(--terracotta-1);
+  --post-tooltip-scrollbar-background: var(--velvette-4);
+  --post-tooltip-scrollbar-thumb-color: var(--velvette-5);
+  --post-tooltip-scrollbar-track-background: var(--velvette-1);
 
   --user-tooltip-positive-feedback-color: var(--yellow-1);
   --user-tooltip-negative-feedback-color: var(--red-1);
 
-  --autocomplete-selected-background-color: var(--terracotta-7);
-  --autocomplete-border-color: var(--terracotta-4);
+  --autocomplete-selected-background-color: var(--velvette-7);
+  --autocomplete-border-color: var(--velvette-4);
 
   --diff-list-added-color: var(--green-4);
   --diff-list-removed-color: var(--red-4);
@@ -534,17 +534,17 @@ html, body[data-current-user-theme="light"] {
   --wiki-page-versions-diff-del-background: var(--red-8);
   --wiki-page-versions-diff-ins-background: var(--green-8);
 
-  --post-notice-border-color: var(--terracotta-7);
+  --post-notice-border-color: var(--velvette-7);
   --post-parent-notice-background: var(--green-8);
   --post-child-notice-background: var(--yellow-8);
   --post-pending-notice-background: var(--blue-8);
   --post-banned-notice-background: var(--red-8);
   --post-deleted-notice-background: var(--red-8);
   --post-resized-notice-background: var(--purple-8);
-  --post-search-notice-background: var(--terracotta-8);
+  --post-search-notice-background: var(--velvette-8);
 
-  --post-artist-commentary-container-background: var(--terracotta-8);
-  --post-artist-commentary-container-border-color: var(--terracotta-7);
+  --post-artist-commentary-container-background: var(--velvette-8);
+  --post-artist-commentary-container-border-color: var(--velvette-7);
 
   --post-upvote-color: var(--link-color);
   --post-downvote-color: var(--red-4);
@@ -570,23 +570,23 @@ html, body[data-current-user-theme="light"] {
   --ugoira-background-color: var(--black);
   --ugoira-controls-icon-color: var(--white);
   --ugoira-controls-icon-hover-color: var(--azure-4);
-  --ugoira-controls-background-color: var(--terracotta-9);
-  --ugoira-controls-popup-hover-background-color: var(--terracotta-6);
-  --ugoira-controls-divider-color: var(--terracotta-6);
+  --ugoira-controls-background-color: var(--velvette-9);
+  --ugoira-controls-popup-hover-background-color: var(--velvette-6);
+  --ugoira-controls-divider-color: var(--velvette-6);
   --ugoira-slider-playback-color: var(--azure-4);
-  --ugoira-slider-loading-color: var(--terracotta-3);
-  --ugoira-slider-unloaded-color: var(--terracotta-5);
+  --ugoira-slider-loading-color: var(--velvette-3);
+  --ugoira-slider-unloaded-color: var(--velvette-5);
 
-  --keyboard-shortcut-color: var(--terracotta-0);
-  --keyboard-shortcut-background-color: var(--terracotta-7);
+  --keyboard-shortcut-color: var(--velvette-0);
+  --keyboard-shortcut-background-color: var(--velvette-7);
 
   --login-link-color: var(--red-4);
-  --divider-border-color: var(--terracotta-7);
-  --divider-border-hover-color: var(--terracotta-6);
+  --divider-border-color: var(--velvette-7);
+  --divider-border-hover-color: var(--velvette-6);
 
-  --jquery-ui-widget-content-background: var(--terracotta-8);
-  --dialog-titlebar-background-color: var(--terracotta-1);
-  --dialog-titlebar-color: var(--terracotta-9);
+  --jquery-ui-widget-content-background: var(--velvette-8);
+  --dialog-titlebar-background-color: var(--velvette-1);
+  --dialog-titlebar-color: var(--velvette-9);
   --dialog-border-color: var(--dialog-titlebar-background-color);
 
   --notice-error-background: var(--red-8);
@@ -594,23 +594,23 @@ html, body[data-current-user-theme="light"] {
   --notice-info-background: var(--azure-8);
   --notice-info-border-color: var(--azure-6);
 
-  --dtext-blockquote-border-color: var(--terracotta-4);
-  --dtext-hr-color: var(--terracotta-7);
-  --dtext-code-background: var(--terracotta-8);
-  --dtext-details-background-color: var(--terracotta-8);
-  --dtext-details-summary-background-color: var(--terracotta-7);
-  --dtext-details-summary-hover-background-color: var(--terracotta-6);
+  --dtext-blockquote-border-color: var(--velvette-4);
+  --dtext-hr-color: var(--velvette-7);
+  --dtext-code-background: var(--velvette-8);
+  --dtext-details-background-color: var(--velvette-8);
+  --dtext-details-summary-background-color: var(--velvette-7);
+  --dtext-details-summary-hover-background-color: var(--velvette-6);
   --dtext-details-summary-text-color: var(--text-color);
   --dtext-spoiler-background-color: black;
-  --dtext-spoiler-hover-color: var(--terracotta-0);
+  --dtext-spoiler-hover-color: var(--velvette-0);
 
-  --paginator-arrow-background-color: var(--terracotta-0);
+  --paginator-arrow-background-color: var(--velvette-0);
   --paginator-arrow-color: var(--link-color);
 
   --asset-paginator-link-color: var(--white);
   --asset-paginator-link-hover-color: var(--white);
-  --asset-paginator-background-color: var(--terracotta-9);
-  --asset-paginator-background-hover-color: var(--terracotta-8);
+  --asset-paginator-background-color: var(--velvette-9);
+  --asset-paginator-background-hover-color: var(--velvette-8);
 
   --artist-tag-color: var(--red-3);
   --artist-tag-hover-color: var(--red-2);
@@ -646,13 +646,13 @@ html, body[data-current-user-theme="light"] {
   --user-verified-email-color: var(--green-3);
   --user-unverified-email-color: var(--yellow-2);
 
-  --news-updates-background: var(--terracotta-7);
-  --news-updates-border-color: var(--terracotta-6);
+  --news-updates-background: var(--velvette-7);
+  --news-updates-border-color: var(--velvette-6);
 
   --inactive-artist-url-color: var(--red-4);
   --inactive-artist-url-hover-color: var(--red-3);
   --banned-artist-label-color: var(--red-5);
-  --deleted-artist-label-color: var(--terracotta-6);
+  --deleted-artist-label-color: var(--velvette-6);
 }
 
 body[data-current-user-theme="dark"] {
