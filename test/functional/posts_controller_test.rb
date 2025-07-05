@@ -193,8 +193,8 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
         end
 
         should "show a notice for a single tag search with multiple pending BURs in multiple topics" do
-          topic1 = as(@user) { create(:forum_topic) }
-          topic2 = as(@user) { create(:forum_topic) }
+          topic1 = create(:forum_topic)
+          topic2 = create(:forum_topic)
           create(:post, tag_string: "foo")
           create(:bulk_update_request, script: "create alias foo -> bar", forum_topic: topic1)
           create(:bulk_update_request, script: "create alias foo -> baz", forum_topic: topic1)
@@ -741,6 +741,15 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
         assert_redirected_to @post
         assert_equal("s", @post.rating)
         assert_equal("tagme", @post.tag_string)
+      end
+
+      should "apply the upvote:self metatag" do
+        @user = create(:user)
+        @post = create_post!(user: @user, tag_string: "test upvote:self")
+
+        assert_redirected_to @post
+        assert_equal("test", @post.reload.tag_string)
+        assert_equal(true, @post.votes.positive.exists?(user: @user))
       end
 
       should "set the source" do

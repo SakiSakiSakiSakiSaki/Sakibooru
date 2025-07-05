@@ -55,6 +55,14 @@ class Blacklist {
     localStorage.setItem(`blacklist.showAll`, JSON.stringify(value));
   }
 
+  get blurImages() {
+    return this.rules.some(rule => rule.hideMethod === "blur");
+  }
+
+  set blurImages(value) {
+    this.rules.forEach(rule => rule.hideMethod = Boolean(value) ? "blur" : "hide");
+  }
+
   get collapsed() {
     return this._collapsed;
   }
@@ -108,7 +116,7 @@ class Post {
     this.blacklist = blacklist;
     this.rules = new Set();
 
-    this.post.classList.add("blacklisted");
+    this.post.classList.add("blacklist-initialized");
     this.post.post = this; // Attach the post object to the DOM element for access with `$("#post_123").get(0).post`
   }
 
@@ -139,9 +147,14 @@ class Post {
     }
   }
 
+  get blacklistClass() {
+    return Array.from(this.rules).some(rule => rule.hideMethod === "hide") ? "blacklisted-hidden" : "blacklisted-blurred";
+  }
+
   // Hide the post when it's blacklisted.
   hide() {
-    this.post.classList.add("blacklisted-active");
+    this.post.classList.remove("blacklisted-hidden", "blacklisted-blurred");
+    this.post.classList.add("blacklist-initialized", "blacklisted-active", this.blacklistClass);
 
     let video = this.post.querySelector("video#image");
     if (video) {
@@ -152,7 +165,8 @@ class Post {
 
   // Unhide the post when it's not blacklisted.
   show() {
-    this.post.classList.remove("blacklisted-active");
+    this.post.classList.remove("blacklisted-active", "blacklisted-hidden", "blacklisted-blurred");
+    this.post.classList.add("blacklist-initialized");
 
     let video = this.post.querySelector("video#image");
     if (video) {
@@ -201,6 +215,15 @@ class Rule {
 
   set enabled(value) {
     localStorage.setItem(`blacklist.enabled:${this.string}`, JSON.stringify(value));
+    this.posts.forEach(post => post.update());
+  }
+
+  get hideMethod() {
+    return JSON.parse(localStorage.getItem(`blacklist.hideMethod:${this.string}`)) ?? "hide";
+  }
+
+  set hideMethod(value) {
+    localStorage.setItem(`blacklist.hideMethod:${this.string}`, JSON.stringify(value));
     this.posts.forEach(post => post.update());
   }
 

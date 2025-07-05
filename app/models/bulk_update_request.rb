@@ -7,7 +7,7 @@ class BulkUpdateRequest < ApplicationRecord
 
   # defines :dtext_reason
   # XXX media embed validations must match forum post validations
-  dtext_attribute :reason, media_embeds: { max_embeds: 5, max_large_emojis: 1, max_small_emojis: 100, max_video_size: 1.megabyte, sfw_only: true }
+  dtext_attribute :reason, media_embeds: { max_embeds: 5, max_large_emojis: 5, max_small_emojis: 100, max_video_size: 1.megabyte, sfw_only: true }
 
   belongs_to :user
   belongs_to :forum_topic, optional: true
@@ -80,14 +80,12 @@ class BulkUpdateRequest < ApplicationRecord
     end
 
     def create_forum_topic
-      CurrentUser.scoped(user) do
-        body = "[bur:#{id}]\n\n#{reason}"
+      body = "[bur:#{id}]\n\n#{reason}"
 
-        self.forum_topic = ForumTopic.new(title: title, category: "Tags", creator: user) unless forum_topic.present?
-        self.forum_post = forum_topic.forum_posts.build(body: body, creator: user) unless forum_post.present?
+      self.forum_topic = ForumTopic.new(title: title, category: "Tags", creator: user) unless forum_topic.present?
+      self.forum_post = forum_topic.forum_posts.build(body: body, creator: user) unless forum_post.present?
 
-        save!
-      end
+      save!
     end
 
     def reject!(rejector = User.system)

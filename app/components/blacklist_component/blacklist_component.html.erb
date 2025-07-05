@@ -7,7 +7,7 @@
   x-cloak>
   <%= tag.div class: "flex items-center gap-1 p-2", "x-bind:class": (inline ? "{ 'sm:border-b': !blacklist.collapsed }" : "{ 'border-b': !blacklist.collapsed }") do %>
     <label class="flex items-center gap-1 font-header font-bold cursor-pointer select-none">
-      <input type="checkbox" class="toggle-switch" x-model="blacklist.enabled" x-effect="$el.indeterminate = blacklist.partiallyEnabled">
+      <input type="checkbox" class="toggle-switch" x-model="blacklist.enabled" x-effect="$el.indeterminate = blacklist.partiallyEnabled" data-shortcut="b">
       Blacklisted
     </label>
 
@@ -23,6 +23,12 @@
         <% menu.with_item do %>
           <label class="flex items-center link-color cursor-pointer select-none" x-bind:class="blacklist.showAll && 'font-bold'" x-on:click.stop title="Show all rules, even those that don't match any posts">
             <input type="checkbox" x-model="blacklist.showAll" class="w-4 h-full mr-1"><span>Show all</span>
+          </label>
+        <% end %>
+
+        <% menu.with_item do %>
+          <label class="flex items-center link-color cursor-pointer select-none" x-bind:class="blacklist.blurImages && 'font-bold'" x-on:click.stop title="Blur images instead of hiding them">
+            <input type="checkbox" x-model="blacklist.blurImages" class="w-4 h-full mr-1"><span>Blur images</span>
           </label>
         <% end %>
 
