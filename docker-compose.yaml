@@ -130,7 +130,7 @@ x-base-template: &base-template
     - /tmp
 
   volumes:
-    - danbooru-images:/images
+    - "/mnt/saki-ds224-plus/Sakibooru Data/Docker Volumes/Sakibooru Stage Volumes/danbooru-images:/images"
 
   configs:
     - source: danbooru_local_config
@@ -165,7 +165,7 @@ services:
   iqdb:
     image: evazion/iqdb
     volumes:
-      - "iqdb-data:/iqdb/data"
+      - "/home/saki/Desktop/Projects/Sakibooru Project/Docker Volumes/Sakibooru Stage Volumes/iqdb-data:/iqdb/data"
     command: ["http", "0.0.0.0", "5588", "/iqdb/data/iqdb.sqlite"]
 
   redis:
@@ -183,7 +183,7 @@ services:
       interval: 1s
       retries: 1
     volumes:
-      - "danbooru-data:/var/lib/postgresql/data"
+      - "/home/saki/Desktop/Projects/Sakibooru Project/Docker Volumes/Sakibooru Stage Volumes/danbooru-data:/var/lib/postgresql/data"
 
   nginx:
     image: ${DANBOORU_IMAGE:-ghcr.io/danbooru/danbooru:production}
@@ -208,7 +208,7 @@ services:
       - source: nginx
         target: /usr/local/nginx/conf/nginx.conf
     volumes:
-      - "danbooru-images:/images"
+      - "/mnt/saki-ds224-plus/Sakibooru Data/Docker Volumes/Sakibooru Stage Volumes/danbooru-images:/images"
 
   autotagger:
     image: ghcr.io/danbooru/autotagger:latest
@@ -218,7 +218,7 @@ services:
     expose:
     - 9324
     volumes:
-      - sqs-data:/data"
+      - "/mnt/saki-ds224-plus/Sakibooru Data/Docker Volumes/Sakibooru Stage Volumes/sqs-data:/data"
     restart: unless-stopped
     stdin_open: true
     tty: true
@@ -251,12 +251,12 @@ configs:
   nginx:
     file: config/nginx.conf
 
-volumes:
-  danbooru-images:
-    name: ${COMPOSE_PROJECT_NAME}-images
-  danbooru-data:
-    name: ${COMPOSE_PROJECT_NAME}-data
-  iqdb-data:
-    name: ${COMPOSE_PROJECT_NAME}-iqdb-data
-  sqs-data:
-    name: ${COMPOSE_PROJECT_NAME}-sqs-data
+# volumes:
+#   danbooru-images:
+#     name: ${COMPOSE_PROJECT_NAME}-images
+#   danbooru-data:
+#     name: ${COMPOSE_PROJECT_NAME}-data
+#   iqdb-data:
+#     name: ${COMPOSE_PROJECT_NAME}-iqdb-data
+#   sqs-data:
+#     name: ${COMPOSE_PROJECT_NAME}-sqs-data
