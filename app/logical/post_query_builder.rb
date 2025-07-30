@@ -11,7 +11,7 @@ class PostQueryBuilder
   extend Memoist
 
   # How many tags a `blah*` search should match.
-  MAX_WILDCARD_TAGS = 100
+  MAX_WILDCARD_TAGS = 200
 
   COUNT_METATAGS = %w[
     comment_count deleted_comment_count active_comment_count
