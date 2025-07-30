@@ -634,9 +634,9 @@ class User < ApplicationRecord
         elsif level >= User::Levels::PLATINUM
           Float::INFINITY
         elsif level == User::Levels::GOLD
-          6
+          14
         else
-          2
+          10
         end
       end
 
