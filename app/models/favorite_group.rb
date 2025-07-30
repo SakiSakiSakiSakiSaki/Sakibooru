@@ -75,7 +75,7 @@ class FavoriteGroup < ApplicationRecord
   end
 
   def validate_number_of_posts
-    if post_count > 10_000
+    if post_count > 100_000
       errors.add(:base, "Favorite groups can have up to 10,000 posts each")
     end
   end
