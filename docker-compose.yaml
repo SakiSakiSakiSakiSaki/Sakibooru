@@ -130,7 +130,7 @@ x-base-template: &base-template
     - /tmp
 
   volumes:
-    - "/mnt/saki-ds224-plus/Sakibooru Data/Docker Volumes/Sakibooru Volumes/danbooru-images:/images"
+    - "/mnt/saki-ds224-plus/Sakibooru Project/Docker Volumes/Sakibooru Volumes/danbooru-images:/images"
 
   configs:
     - source: danbooru_local_config
@@ -208,7 +208,7 @@ services:
       - source: nginx
         target: /usr/local/nginx/conf/nginx.conf
     volumes:
-      - "/mnt/saki-ds224-plus/Sakibooru Data/Docker Volumes/Sakibooru Volumes/danbooru-images:/images"
+      - "/mnt/saki-ds224-plus/Sakibooru Project/Docker Volumes/Sakibooru Volumes/danbooru-images:/images"
 
   autotagger:
     image: ghcr.io/danbooru/autotagger:latest
@@ -218,7 +218,7 @@ services:
     expose:
     - 9324
     volumes:
-      - "/mnt/saki-ds224-plus/Sakibooru Data/Docker Volumes/Sakibooru Volumes/sqs-data:/data"
+      - "/mnt/saki-ds224-plus/Sakibooru Project/Docker Volumes/Sakibooru Volumes/sqs-data:/data"
     restart: unless-stopped
     stdin_open: true
     tty: true
