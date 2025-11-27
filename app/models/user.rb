@@ -61,7 +61,7 @@ class User < ApplicationRecord
   # Personal preferences that are editable by the user, rather than internal flags. These will be cleared when the user deactivates their account.
   USER_PREFERENCE_BOOLEAN_ATTRIBUTES = ACTIVE_BOOLEAN_ATTRIBUTES - %w[is_banned requires_verification is_verified]
 
-  DEFAULT_BLACKLIST = ["guro", "scat", "-rating:g"].join("\n")
+  DEFAULT_BLACKLIST = ["guro", "scat", "-rating:g", "manual_post"].join("\n")
 
   # The number of backup codes to generate for a user.
   MAX_BACKUP_CODES = 3
