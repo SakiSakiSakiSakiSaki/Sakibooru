@@ -2,7 +2,7 @@
 
 class UploadPolicy < ApplicationPolicy
   def create?
-    unbanned?
+    user.is_builder?
   end
 
   def show?
