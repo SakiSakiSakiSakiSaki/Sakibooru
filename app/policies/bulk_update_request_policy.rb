@@ -2,15 +2,15 @@
 
 class BulkUpdateRequestPolicy < ApplicationPolicy
   def create?
-    unbanned? && (record.forum_topic.blank? || policy(record.forum_topic).reply?)
+    unbanned? && user.is_builder? && (record.forum_topic.blank? || policy(record.forum_topic).reply?)
   end
 
   def update?
-    unbanned? && !record.is_approved? && (user.is_admin? || record.user_id == user.id)
+    unbanned? && user.is_builder? && !record.is_approved? && (user.is_admin? || record.user_id == user.id)
   end
 
   def approve?
-    unbanned? && !record.is_approved? && (user.is_admin? || (user.is_builder? && record.is_tag_move_allowed?))
+    unbanned? && user.is_builder? && !record.is_approved? && (user.is_admin? || (user.is_builder? && record.is_tag_move_allowed?))
   end
 
   def destroy?

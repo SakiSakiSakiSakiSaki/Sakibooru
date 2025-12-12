@@ -10,7 +10,7 @@ class UserNameChangeRequestPolicy < ApplicationPolicy
   end
 
   def create?
-    (user.name_errors.present? || unbanned?) && (name_change.user == user || can_rename_user?)
+    (user.name_errors.present? || unbanned? && user.is_builder?) && (name_change.user == user || can_rename_user?)
   end
 
   def can_rename_user?

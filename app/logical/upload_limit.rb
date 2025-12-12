@@ -71,7 +71,9 @@ class UploadLimit
   # @return [Integer] The user's total number of upload slots. Ranges from 5 to 40.
   def upload_slots
     slots = upload_level + Danbooru.config.extra_upload_slots.to_i
-    slots = slots.clamp(0..5) if !user.posts.exists?(created_at: ..1.hour.ago)
+    if !user.is_builder?
+      slots = 0
+    end
     slots
   end
 

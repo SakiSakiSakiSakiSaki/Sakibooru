@@ -6,7 +6,7 @@ class PoolPolicy < ApplicationPolicy
   end
 
   def update?
-    unbanned? && (!record.is_deleted? || user.is_builder?)
+    unbanned? && !record.is_deleted? && user.is_builder?
   end
 
   def destroy?

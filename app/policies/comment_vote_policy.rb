@@ -2,7 +2,7 @@
 
 class CommentVotePolicy < ApplicationPolicy
   def create?
-    unbanned? && !record.comment.is_deleted?
+    unbanned? && user.is_builder? && !record.comment.is_deleted?
   end
 
   def destroy?

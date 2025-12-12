@@ -2,7 +2,7 @@
 
 class UserFeedbackPolicy < ApplicationPolicy
   def create?
-    unbanned? && user.is_gold? && record.user_id != user.id
+    unbanned? && user.is_builder? && record.user_id != user.id
   end
 
   def update?

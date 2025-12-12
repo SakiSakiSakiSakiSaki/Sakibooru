@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ForumPostPolicy < ApplicationPolicy
+  def create?
+    unbanned? && user.is_builder?
+  end
+
   def index?
     true
   end
@@ -10,11 +14,11 @@ class ForumPostPolicy < ApplicationPolicy
   end
 
   def create?
-    unbanned? && policy(record.topic).reply?
+    unbanned? && user.is_builder? && policy(record.topic).reply?
   end
 
   def update?
-    unbanned? && show? && (user.is_moderator? || (record.creator_id == user.id && !record.topic.is_locked?))
+    unbanned? && user.is_builder? && show? && (user.is_moderator? || (record.creator_id == user.id && !record.topic.is_locked?))
   end
 
   def destroy?
@@ -26,15 +30,15 @@ class ForumPostPolicy < ApplicationPolicy
   end
 
   def reply?
-    policy(record.topic).reply?
+    user.is_builder? && policy(record.topic).reply?
   end
 
   def votable?
-    unbanned? && show? && record.bulk_update_request.present? && record.bulk_update_request.is_pending?
+    unbanned? && user.is_builder? && show? && record.bulk_update_request.present? && record.bulk_update_request.is_pending?
   end
 
   def reportable?
-    unbanned? && show? && record.creator_id != user.id && !record.creator.is_moderator? && record.created_at.after?(1.year.ago)
+    unbanned? && user.is_builder?  && show? && record.creator_id != user.id && !record.creator.is_moderator? && record.created_at.after?(1.year.ago)
   end
 
   def show_deleted?

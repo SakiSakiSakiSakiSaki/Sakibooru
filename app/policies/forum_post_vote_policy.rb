@@ -2,11 +2,11 @@
 
 class ForumPostVotePolicy < ApplicationPolicy
   def create?
-    unbanned? && policy(record.forum_post).votable?
+    unbanned? && user.is_builder? && policy(record.forum_post).votable?
   end
 
   def destroy?
-    unbanned? && record.creator_id == user.id
+    unbanned? && user.is_builder? && record.creator_id == user.id
   end
 
   def rate_limit_for_write(**_options)

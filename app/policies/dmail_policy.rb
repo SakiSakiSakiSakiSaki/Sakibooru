@@ -2,7 +2,7 @@
 
 class DmailPolicy < ApplicationPolicy
   def create?
-    unbanned?
+    unbanned? && user.is_builder?
   end
 
   def index?
@@ -23,7 +23,7 @@ class DmailPolicy < ApplicationPolicy
   end
 
   def reportable?
-    unbanned? && record.owner_id == user.id && record.is_recipient? && !record.is_automated? && !record.from.is_moderator? && record.created_at.after?(1.year.ago)
+    unbanned? && user.is_builder? && record.owner_id == user.id && record.is_recipient? && !record.is_automated? && !record.from.is_moderator? && record.created_at.after?(1.year.ago)
   end
 
   def rate_limit_for_create(**_options)

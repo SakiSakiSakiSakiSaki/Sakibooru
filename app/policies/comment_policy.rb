@@ -2,7 +2,7 @@
 
 class CommentPolicy < ApplicationPolicy
   def create?
-    unbanned?
+    unbanned? && user.is_builder?
   end
 
   def update?
@@ -10,7 +10,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def reportable?
-    unbanned? && record.creator_id != user.id && !record.creator.is_moderator? && !record.is_deleted? && record.created_at.after?(1.year.ago)
+    unbanned? && user.is_builder? && record.creator_id != user.id && !record.creator.is_moderator? && !record.is_deleted? && record.created_at.after?(1.year.ago)
   end
 
   def can_sticky_comment?
@@ -30,7 +30,7 @@ class CommentPolicy < ApplicationPolicy
   end
 
   def reply?
-    !record.is_deleted?
+    user.is_builder? && !record.is_deleted?
   end
 
   def rate_limit_for_create(**_options)

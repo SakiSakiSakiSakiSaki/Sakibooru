@@ -26,7 +26,7 @@ class PostDisapprovalPolicy < ApplicationPolicy
   end
 
   def update?
-    unbanned? && record.post.in_modqueue? && record.user_id == user.id
+    unbanned? && user.is_builder? && record.post.in_modqueue? && record.user_id == user.id
   end
 
   def api_attributes

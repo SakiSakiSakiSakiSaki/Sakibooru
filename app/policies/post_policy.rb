@@ -10,11 +10,11 @@ class PostPolicy < ApplicationPolicy
   end
 
   def update?
-    unbanned? && record.visible?
+    unbanned? && user.is_builder? && record.visible?
   end
 
   def create?
-    unbanned? && record.uploader == user
+    unbanned? && user.is_builder? && record.uploader == user
   end
 
   def revert?

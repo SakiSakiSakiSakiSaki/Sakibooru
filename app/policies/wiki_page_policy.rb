@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 class WikiPagePolicy < ApplicationPolicy
+  def create?
+    unbanned? && user.is_builder?
+  end
+
   def show_or_new?
     true
   end
 
   def update?
-    unbanned? && (can_edit_locked? || !record.is_locked?)
+    unbanned? && user.is_builder? && (can_edit_locked? || !record.is_locked?)
   end
 
   def revert?
