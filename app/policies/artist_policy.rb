@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ArtistPolicy < ApplicationPolicy
+  def create?
+    unbanned? && user.is_builder?
+  end
+
   def ban?
     user.is_admin? && !record.is_banned?
   end
@@ -10,7 +14,7 @@ class ArtistPolicy < ApplicationPolicy
   end
 
   def revert?
-    unbanned?
+    unbanned? && user.is_builder?
   end
 
   def can_view_banned?

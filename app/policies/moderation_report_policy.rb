@@ -10,7 +10,7 @@ class ModerationReportPolicy < ApplicationPolicy
   end
 
   def create?
-    unbanned? && policy(record.model).try(:reportable?)
+    unbanned? && user.is_builder? && policy(record.model).try(:reportable?)
   end
 
   def update?

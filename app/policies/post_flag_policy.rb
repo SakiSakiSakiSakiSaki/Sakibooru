@@ -6,7 +6,7 @@ class PostFlagPolicy < ApplicationPolicy
   end
 
   def update?
-    unbanned? && record.pending? && record.creator_id == user.id
+    unbanned? && user.is_builder? && record.pending? && record.creator_id == user.id
   end
 
   def can_search_flagger?

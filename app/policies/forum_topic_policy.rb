@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ForumTopicPolicy < ApplicationPolicy
+  def create?
+    unbanned? && user.is_builder?
+  end
+
   def index?
     true
   end
@@ -26,7 +30,7 @@ class ForumTopicPolicy < ApplicationPolicy
   end
 
   def reply?
-    show? && (user.is_moderator? || !record.is_locked?)
+    show? && user.is_builder? && (user.is_moderator? || !record.is_locked?)
   end
 
   def moderate?

@@ -2,11 +2,11 @@
 
 class PostAppealPolicy < ApplicationPolicy
   def edit?
-    update?
+    unbanned? && user.is_builder?
   end
 
   def update?
-    unbanned? && record.pending? && record.creator_id == user.id
+    unbanned? && user.is_builder? && record.pending? && record.creator_id == user.id
   end
 
   def permitted_attributes_for_create

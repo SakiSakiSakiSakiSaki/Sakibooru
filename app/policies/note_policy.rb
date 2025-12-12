@@ -1,12 +1,16 @@
 # frozen_string_literal: true
 
 class NotePolicy < ApplicationPolicy
+  def create?
+    unbanned? && user.is_builder?
+  end
+
   def preview?
     true
   end
 
   def revert?
-    update?
+    unbanned? && user.is_builder?
   end
 
   def rate_limit_for_preview(**_options)
