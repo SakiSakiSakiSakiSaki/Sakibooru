@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class PoolPolicy < ApplicationPolicy
+  def create?
+    unbanned? && user.is_builder?
+  end
+
   def gallery?
     index?
   end
