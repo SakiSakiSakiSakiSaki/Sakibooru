@@ -21,12 +21,12 @@ module DanbooruMaintenance
   end
 
   def weekly
-    queue RetireTagRelationshipsJob
-    queue DmailInactiveApproversJob
+    # queue RetireTagRelationshipsJob
+    # queue DmailInactiveApproversJob
   end
 
   def monthly
-    queue PruneApproversJob
+    # queue PruneApproversJob
   end
 
   def queue(job)
